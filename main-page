@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trova Prodotti - Leroy Merlin Udine</title>
+    <style>
+        body { font-family: 'Helvetica', Arial, sans-serif; text-align: center; padding: 20px; background: #fdfdfd; color: #333; }
+        .container { max-width: 400px; margin: auto; background: white; padding: 40px 20px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        img { width: 180px; margin-bottom: 20px; }
+        h1 { font-size: 20px; color: #009245; }
+        input { width: 90%; padding: 15px; margin: 20px 0; border: 2px solid #eee; border-radius: 10px; font-size: 18px; outline: none; }
+        input:focus { border-color: #009245; }
+        button { background: #009245; color: white; width: 95%; padding: 15px; border: none; border-radius: 10px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        button:hover { background: #007a3a; }
+        .info { margin-top: 20px; font-size: 14px; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Leroy_Merlin_logo.svg/1024px-Leroy_Merlin_logo.svg.png" alt="Leroy Merlin">
+        <h1>🔍 Assistente Corsie Udine</h1>
+        <p>Cerca un prodotto per vedere in che corsia si trova:</p>
+        <input type="text" id="userInput" placeholder="Cosa cerchi?">
+        <button onclick="cerca()">CERCA PRODOTTO</button>
+        <p class="info">Il link aprirà il sito ufficiale filtrato per il negozio di Udine.</p>
+    </div>
+
+    <script>
+        function cerca() {
+            const query = document.getElementById('userInput').value;
+            if (query) {
+                // Link filtrato per Udine (ID 68) e prodotti venduti da LM
+                const baseUrl = "https://www.leroymerlin.it/ricerca";
+                const params = `?q=${encodeURIComponent(query)}&store=68&filter=venduto-da-leroy-merlin`;
+                window.location.href = baseUrl + params;
+            } else {
+                alert("Scrivi qualcosa da cercare!");
+            }
+        }
+    </script>
+</body>
+</html>
